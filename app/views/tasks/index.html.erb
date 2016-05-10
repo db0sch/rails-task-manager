@@ -1,0 +1,13 @@
+<div class='wrapper'>
+
+  <%= render 'form' %>
+
+  <% @tasks.each do |task| %>
+    <li>
+      ><strong><%= task.name %></strong> <%= task.done ? '[x]' : '[ ]' %>
+       <%= link_to "show", task_path(task) %>
+       <%= link_to "edit", edit_task_path(task) %>
+       <%= link_to "delete", task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+    </li>
+  <% end %>
+</div>
